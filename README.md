@@ -159,4 +159,4 @@ ISC License - See package.json for details
 
 **Assignment Submission**: Full Stack Development - Multilingual Translation Web Application
 **Date**: March 13, 2026
-**Student**: [Your Name, ID: Your Student ID] 
+**Student**: John Mwando, ID: 2410053
