@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Translator UI</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1 class="app-title">QuickTranslate</h1>
+    </header>
+
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        🌓
+    </button>
+
+    <div class="container">
+
+        <!-- LANGUAGE BAR -->
+        <div class="lang-bar">
+            <div class="left-group">
+                <select id="detectLang" onchange="activateDetectMode()">
+                    <option value="detect">Detect Language</option>
+                </select>
+
+                <select id="sourceLang">
+                    <option value="en" selected>English</option>
+                    <option value="fr">French</option>
+                    <option value="es">Spanish</option>
+                    <option value="de">German</option>
+                    <option value="it">Italian</option>
+                    <option value="ja">Japanese</option>
+                    <option value="zh">Chinese</option>
+                    <option value="ru">Russian</option>
+                    <option value="ar">Arabic</option>
+                    <option value="pt">Portuguese</option>
+                </select>
+
+                <button class="swap" onclick="swapLanguages()">⇄</button>
+            </div>
+
+            <select id="targetLang">
+                <option value="fr" selected>French</option>
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+                <option value="de">German</option>
+                <option value="it">Italian</option>
+                <option value="ja">Japanese</option>
+                <option value="zh">Chinese</option>
+                <option value="ru">Russian</option>
+                <option value="ar">Arabic</option>
+                <option value="pt">Portuguese</option>
+            </select>
+        </div>
+
+        <!-- TRANSLATION PANELS -->
+        <div class="panels">
+            <div class="panel">
+                <div class="panel-title">Input</div>
+                <textarea id="input" maxlength="500" oninput="updateCharacterCount()">Hello, how are you</textarea>
+                <div class="panel-bottom">
+                    <div class="tools">
+                        <span id="listenInputButton" class="listen-btn" onclick="listen('input')">🔊 Listen</span>
+                        <span onclick="copyText('input')">📋 Copy</span>
+                    </div>
+                    <span id="count">18/500</span>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-title">Output</div>
+                <textarea id="output" readonly>Bonjour, comment allez-vous</textarea>
+                <div class="panel-bottom">
+                    <div class="tools">
+                        <span id="listenButton" onclick="listen('output')" class="listen-btn">🔊 Listen</span>
+                        <span onclick="copyText('output')">📋 Copy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRANSLATE BUTTON -->
+        <div class="translate">
+            <button id="translateBtn" onclick="translateText()">
+                <span id="buttonText">Translate</span>
+            </button>
+        </div>
+
+        <!-- Error Message Container -->
+        <div id="errorContainer"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
